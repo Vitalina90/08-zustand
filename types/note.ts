@@ -9,5 +9,11 @@ export interface Note {
   tag: Tag;
 }
 
+export interface NewNoteData {
+  title: string;
+  content?: string;
+  tag: Tag;
+}
+
 
 

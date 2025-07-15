@@ -24,21 +24,12 @@ const BASE_URL = "https://notehub-public.goit.study/api/notes";
 
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
-if (!TOKEN) {
-  if (process.env.NODE_ENV !== "production") {
-    throw new Error("❌ NEXT_PUBLIC_NOTEHUB_TOKEN is not defined in environment variables");
-  } else {
-    console.warn("⚠️ Warning: NoteHub token is missing — requests may fail.");
-  }
-}
-
 const noteServiceClient = axios.create({
   baseURL: BASE_URL,
   headers: {
     Authorization: `Bearer ${TOKEN}`,
   },
 });
-
 
 export async function fetchNotes({ search, page = 1, tag }: FetchNotesParams) {
   const params: FetchNotesParams = {

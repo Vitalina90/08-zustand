@@ -3,17 +3,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { fetchNoteById } from "@/lib/api";
-
 import css from "./NoteDetails.module.css";
 
-
-export default function NoteDetailsClient () {
+export default function NoteDetailsClient() {
   const { id } = useParams<{ id: string }>();
-  const noteId = Number(id);
 
-  const { data: note, isLoading, error } = useQuery({
-    queryKey: ["note", noteId],
-    queryFn: () => fetchNoteById(noteId),
+  const {
+    data: note,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["note", id],
+    queryFn: () => fetchNoteById(+id),
     refetchOnMount: false,
   });
 
@@ -28,9 +29,12 @@ export default function NoteDetailsClient () {
           <button className={css.editBtn}>Edit note</button>
         </div>
         <p className={css.content}>{note.content}</p>
-        <p className={css.date}>{note.createdAt}</p>
+        <p className={css.date}>
+          {note.updatedAt === note.createdAt
+            ? `Created at: ${new Date(note.createdAt).toLocaleString("uk-UA")}`
+            : `Updated at: ${new Date(note.updatedAt).toLocaleString("uk-UA")}`}
+        </p>
       </div>
     </div>
   );
 }
-

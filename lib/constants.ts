@@ -11,7 +11,4 @@ export const NOTES_PER_PAGE = 12;
 // Значення за замовчуванням
 export const DEFAULT_TAG = 'Todo';
 
-// Інші обмеження
-export const TITLE_MIN_LENGTH = 3;
-export const TITLE_MAX_LENGTH = 50;
-export const CONTENT_MAX_LENGTH = 500;
+
