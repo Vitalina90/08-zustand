@@ -1,6 +1,6 @@
 import NoteForm from "@/components/NoteForm/NoteForm";
-import css from "./CreateForm.module.css";
 import { Metadata } from "next";
+import css from "./CreateForm.module.css";
 
 export const metadata: Metadata = {
   title: "Create New Note",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Create New Note",
     description:
       "Effortlessly create a new note in NoteHub — the smart app for capturing and organizing your thoughts.",
-    url: "https://08-zustand-flax.vercel.app/action/create",
+    url: "https://09-auth-seven-beryl.vercel.app/action/create",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -35,3 +35,4 @@ const CreateNote = () => {
   );
 };
 export default CreateNote;
+
